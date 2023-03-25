@@ -22,4 +22,55 @@ public class Reservation {
     @ManyToOne
     @JoinColumn
     User user;
+
+    public Reservation() {
+    }
+
+    public Reservation(int id, int numberOfHours, Payment payment, Spot spot, User user) {
+        Id = id;
+        this.numberOfHours = numberOfHours;
+        this.payment = payment;
+        this.spot = spot;
+        this.user = user;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public int getNumberOfHours() {
+        return numberOfHours;
+    }
+
+    public void setNumberOfHours(int numberOfHours) {
+        this.numberOfHours = numberOfHours;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
+    public Spot getSpot() {
+        return spot;
+    }
+
+    public void setSpot(Spot spot) {
+        this.spot = spot;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
