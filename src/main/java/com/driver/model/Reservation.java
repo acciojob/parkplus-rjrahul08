@@ -1,9 +1,10 @@
 package com.driver.model;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "spot")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +18,12 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     Spot spot;
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     User user;
 
     public Reservation() {

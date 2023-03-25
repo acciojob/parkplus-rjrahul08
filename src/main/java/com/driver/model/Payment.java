@@ -1,9 +1,10 @@
 package com.driver.model;
 
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "payment")
 public class Payment {
 
     @Id
@@ -18,6 +19,7 @@ public class Payment {
 
     @OneToOne
     @JoinColumn
+    @JsonIgnore
     Reservation reservation;
 
     public Payment() {
