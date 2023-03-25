@@ -43,12 +43,14 @@ public class ParkingLotController {
     @PutMapping("/{parkingLotId}/spot/{spotId}/update")
     public ResponseEntity<Spot> updateSpot(@PathVariable int parkingLotId, @PathVariable int spotId, @RequestParam int pricePerHour) {
         //update the details of a spot
+        Spot updatedSpot = parkingLotService.updateSpot(parkingLotId,spotId,pricePerHour);
         return new ResponseEntity<>(updatedSpot, HttpStatus.OK);
     }
 
     @DeleteMapping("/{parkingLotId}/delete")
     public ResponseEntity<Void> deleteParkingLot(@PathVariable int parkingLotId) {
         //delete a parkingLot
+        parkingLotService.deleteParkingLot(parkingLotId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
