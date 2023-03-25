@@ -19,12 +19,10 @@ public class ReservationController {
         //Note that the vehicle can only be parked in a spot having a type equal to or larger than given vehicle
         //If parkingLot is not found, user is not found, or no spot is available, throw "Cannot make reservation" exception.
 
-        try {
-            Reservation reservation = reservationService.reserveSpot(userId, parkingLotId, timeInHours, numberOfWheels);
-            return reservation;
+        Reservation reservation=reservationService.reserveSpot(userId, parkingLotId, timeInHours, numberOfWheels);
+        if(reservation == null){
+            throw new Exception("Cannot make Reservation");
         }
-        catch(Exception e){
-            return null;
-        }
+        return reservation;
     }
 }
